@@ -1,0 +1,21 @@
+.mdc-data-table__header-cell {
+	vertical-align: middle;
+	font-weight: 600;
+}
+
+.mat-mdc-cell {
+	vertical-align: middle;
+}
+
+// .mdc-data-table__header-cell {
+// 	&.mat-column-edit,
+// 	&.mat-column-delete {
+// 		text-align: center;
+// 	}
+// }
+
+.mat-column-edit,
+.mat-column-delete {
+	text-align: end;
+	vertical-align: middle;
+}
