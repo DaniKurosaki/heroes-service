@@ -1,4 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+@use './styles/material/typography.scss' as typography;
+@use './styles/material/theme' as theme;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import './styles/reset.scss';
+@import './styles/material/typography.scss';
+
+@include mat.core();
+@include mat.all-component-themes(theme.$app-theme);
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: 'Geist', sans-serif;
+}
