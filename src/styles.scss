@@ -4,12 +4,16 @@
 
 @import './styles/reset.scss';
 @import './styles/material/typography.scss';
+@import './styles/colors.scss';
 
 @include mat.core();
 @include mat.all-component-themes(theme.$app-theme);
 
 html,
 body {
+	background-color: $white-fill;
+	color: $black-text;
+
 	height: 100%;
 }
 
