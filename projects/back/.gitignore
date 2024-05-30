@@ -1,0 +1,6 @@
+.env
+.env.development
+
+# /dist/
+/node_modules/
+/functions/
