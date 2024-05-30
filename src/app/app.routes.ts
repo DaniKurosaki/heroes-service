@@ -19,7 +19,7 @@ export const routes: Routes = [
 		component: PageCreateComponent,
 	},
 	{
-		path: RouteEnum.EDIT,
+		path: RouteEnum.EDIT + "/:id",
 		component: PageEditComponent,
 	},
 	{ path: "**", redirectTo: RouteEnum.HOME },
