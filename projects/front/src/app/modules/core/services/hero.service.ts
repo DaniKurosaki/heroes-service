@@ -10,7 +10,7 @@ import { HttpClient } from "@angular/common/http";
 export class HeroService {
 	protected readonly http: HttpClient = inject(HttpClient);
 
-	private readonly urlToEndpoint = environment.apiUrl + ":" + environment.apiPort + environment.apiPath + "/heroes";
+	private readonly urlToEndpoint = `${environment.apiUrl}${environment.apiPort ? ":" + environment.apiPort : ""}${environment.apiPath}/heroes`;
 
 	public getAll(): Observable<IHero[]> {
 		return this.http.get<IHero[]>(this.urlToEndpoint);

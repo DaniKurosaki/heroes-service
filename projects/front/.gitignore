@@ -1,4 +1,7 @@
-/dist/
+environment.dev.ts
+environment.prod.ts
+
+# /dist/
 /node_modules/
 
 # Miscellaneous
