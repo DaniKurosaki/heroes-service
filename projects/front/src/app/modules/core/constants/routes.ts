@@ -1,4 +1,4 @@
-import { KeyValuePair } from "../../shared/interfaces/generic.interface";
+import { KeyValuePair } from "../../shared/interfaces/common.interface";
 
 export enum RouteEnum {
 	HOME = "home",
