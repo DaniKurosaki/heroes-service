@@ -1,27 +1,40 @@
-# HeroesService
+# Heroes Service
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
+Application that provides a small REST API to get heroes' information from a MongoDB database.
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Prerequisites
 
-## Code scaffolding
+-   Node.js
+-   MongoDB
+-   Angular CLI
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Installing
 
-## Build
+1. Clone the repository
+2. Install the dependencies
+    - Frontend: Run `npm install` in ./projects/front
+    - Backend: Run `npm install` in ./projects/back
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Running
 
-## Running unit tests
+#### Frontend
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Run `ng serve` in ./projects/front
+2. Open `http://localhost:4200/` in your browser
 
-## Running end-to-end tests
+#### Backend
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Run `npm run start` in ./projects/back
+2. Open `http://localhost:8080/` in your browser
 
-## Further help
+## Built With
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+-   [Angular](https://angular.io/) - The frontend framework
+-   [Angular CLI](https://cli.angular.io/) - The frontend framework
+-   [Angular Material](https://material.angular.io/) - The frontend framework
+-   [Node.js](https://nodejs.org/en/) - The backend framework
+-   [Express](https://expressjs.com/) - The backend framework
+-   [MongoDB](https://www.mongodb.com/) - The database
+-   [TypeScript](https://www.typescriptlang.org/) - The programming language

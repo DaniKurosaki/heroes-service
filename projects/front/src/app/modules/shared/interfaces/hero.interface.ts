@@ -1,4 +1,4 @@
-import { Genders } from "../enums/generic.enum";
+import { Genders } from "../enums/common.enum";
 import { HeroSuperpower, HeroTeamAffiliation } from "../enums/hero.enum";
 
 export interface Hero {
