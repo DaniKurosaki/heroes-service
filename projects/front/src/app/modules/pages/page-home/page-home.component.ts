@@ -151,11 +151,11 @@ export class PageHomeComponent extends CommonComponent implements AfterViewInit 
 	 */
 	override load(): void {
 		this.subscriptions.push(
-			this.heroService.getById("this.route.snapshot.paramMap.get()").subscribe({
+			this.heroService.getAll().subscribe({
 				next: (data) => {
-					// if (!data.length) return;
+					if (!data.length) return;
 
-					// this.dataSource.data = data;
+					this.dataSource.data = data;
 				},
 				error: (error) => {
 					if (isDevMode()) console.error(error);
@@ -234,7 +234,6 @@ export class PageHomeComponent extends CommonComponent implements AfterViewInit 
 				},
 				error: (error) => {
 					if (isDevMode()) console.error(error);
-
 				},
 			});
 		});
