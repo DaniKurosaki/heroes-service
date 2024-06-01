@@ -1,0 +1,10 @@
+@if (data.title) {
+<span class="title title--{{ data.type }}" matSnackBarLabel>{{ data.title }}</span>
+} @if (data.message) {
+<span class="message" matSnackBarMessage>{{ data.message }}</span>
+}
+<span class="content" matSnackBarActions>
+	<button mat-button matSnackBarAction (click)="snackBarRef.dismissWithAction()">
+		<mat-icon>close</mat-icon>
+	</button>
+</span>

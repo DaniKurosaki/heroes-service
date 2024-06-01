@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Directive, OnDestroy, OnInit, inject } from "@angular/core";
 import { Subscription } from "rxjs";
 import { ILoad } from "../../../shared/interfaces/common.interface";
+import { ToastService } from "../../services/toast.service";
 
 /**
  * Generic component, which implements ILoad, OnInit, OnDestroy.
@@ -9,6 +10,8 @@ import { ILoad } from "../../../shared/interfaces/common.interface";
  */
 @Directive()
 export abstract class CommonComponent implements ILoad, OnInit, OnDestroy {
+	public readonly toastService: ToastService = inject(ToastService);
+
 	/**
 	 * Array of subscriptions, where all subscriptions will be stored, so they can be unsubscribed on component destroy.
 	 */

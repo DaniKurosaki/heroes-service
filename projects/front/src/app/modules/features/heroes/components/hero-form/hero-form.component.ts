@@ -16,10 +16,11 @@ import { GenderLocalized } from "../../../../shared/enums/common.enum";
 import { Gender } from "../../../../../../../../back/src/enums/common.enum";
 import { HeroSecretIdentityStatus, HeroSuperpower, HeroTeamAffiliation } from "../../../../../../../../back/src/enums/hero.enum";
 import { HeroKeysLocalized, HeroSecretIdentityStatusLocalized, HeroSuperpowerLocalized, HeroTeamAffiliationLocalized } from "../../enums/hero.enum";
-import { ModelFormGroup } from "../../../../shared/interfaces/common.interface";
+import { ModelFormGroup, Toast } from "../../../../shared/interfaces/common.interface";
 import { IHeroCreate } from "../../../../../../../../back/src/interfaces/hero.interface";
 
 import { mapKeysToArray } from "../../../../shared/utils/mappers.util";
+import { ToastComponent } from "../../../../core/components/toast/toast.component";
 
 type Variant = "create" | "update";
 
@@ -45,6 +46,20 @@ const HeroKeysIcons: Record<keyof IHeroCreate, string> = {
 	["birth_date"]: "celebration",
 	["superpower"]: "bolt",
 	["team_affiliation"]: "groups",
+};
+
+/**
+ * Localized text keys for this component messages
+ */
+type Messages = "FIELDS_ERROR" | "CREATED" | "UPDATED";
+
+/**
+ * Localized texts for this component messages
+ */
+const MessagesLocalized: Record<Messages, string> = {
+	["FIELDS_ERROR"]: "Please fill in all required fields",
+	["CREATED"]: " created successfully",
+	["UPDATED"]: " updated successfully",
 };
 
 /**
@@ -190,7 +205,16 @@ export class HeroFormComponent extends CommonComponent {
 	 */
 	public submitForm(): void {
 		this.form.markAllAsTouched();
-		if (!this.form.valid) return;
+		if (!this.form.valid) {
+			this.toastService.openFromComponent<ToastComponent, Toast>(ToastComponent, {
+				duration: 2500,
+				data: {
+					title: `${MessagesLocalized["FIELDS_ERROR"]}`,
+					type: "error",
+				},
+			});
+			return;
+		}
 
 		this[this.variant]();
 	}
@@ -201,11 +225,24 @@ export class HeroFormComponent extends CommonComponent {
 	private create(): void {
 		this.subscriptions.push(
 			this.heroService.create(this.form.getRawValue()).subscribe({
-				next: () => {
+				next: (hero) => {
 					this.router.navigate([RouteEnum.HEROES, HeroSubRouteEnum.LIST]);
+
+					this.toastService.openFromComponent<ToastComponent, Toast>(ToastComponent, {
+						duration: 2500,
+						data: {
+							title: `${hero.hero_name} ${MessagesLocalized["CREATED"]}`,
+							type: "success",
+						},
+					});
 				},
 				error: (error) => {
 					if (isDevMode()) console.error(error);
+
+					this.toastService.openFromComponent<ToastComponent, Toast>(ToastComponent, {
+						duration: 2500,
+						data: { type: "error" },
+					});
 				},
 			})
 		);
@@ -219,11 +256,24 @@ export class HeroFormComponent extends CommonComponent {
 
 		this.subscriptions.push(
 			this.heroService.update(this.id, this.form.value).subscribe({
-				next: () => {
+				next: (hero) => {
 					this.router.navigate([RouteEnum.HEROES, HeroSubRouteEnum.LIST]);
+
+					this.toastService.openFromComponent<ToastComponent, Toast>(ToastComponent, {
+						duration: 2500,
+						data: {
+							title: `${hero.hero_name} ${MessagesLocalized["UPDATED"]}`,
+							type: "success",
+						},
+					});
 				},
 				error: (error) => {
 					if (isDevMode()) console.error(error);
+
+					this.toastService.openFromComponent<ToastComponent, Toast>(ToastComponent, {
+						duration: 2500,
+						data: { type: "error" },
+					});
 				},
 			})
 		);

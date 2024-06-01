@@ -22,6 +22,8 @@ import { GenderLocalized } from "../../../../shared/enums/common.enum";
 import { HeroSubRouteEnum, RouteEnum } from "../../../../core/constants/routes";
 import { IHero } from "../../../../../../../../back/src/interfaces/hero.interface";
 import { CapitalizePipe } from "../../../../shared/pipes/capitalize.pipe";
+import { ToastComponent } from "../../../../core/components/toast/toast.component";
+import { Toast } from "../../../../shared/interfaces/common.interface";
 
 /**
  * Extra columns for the table that are not part of the data model
@@ -54,7 +56,7 @@ const DialogTextsLocalized: Record<DialogTexts, string> = {
 /**
  * Localized text keys for this component messages
  */
-type Messages = "NO_DATA_MATCHING" | "NO_DATA" | "ERROR" | "FILTER" | "ADD";
+type Messages = "NO_DATA_MATCHING" | "NO_DATA" | "ERROR" | "FILTER" | "ADD" | "DELETED";
 
 /**
  * Localized texts for this component messages
@@ -65,6 +67,7 @@ const MessagesLocalized: Record<Messages, string> = {
 	["ERROR"]: "An error occurred while processing the request",
 	["FILTER"]: "Filter",
 	["ADD"]: "Add new hero",
+	["DELETED"]: "deleted successfully",
 };
 
 /**
@@ -257,11 +260,27 @@ export class HeroListComponent extends CommonComponent implements AfterViewInit 
 					this.heroService.deleteById(hero.id).subscribe({
 						next: (_) => {
 							const index = this.dataSource.data.findIndex((item) => item.id === hero.id);
+
 							this.dataSource.data.splice(index, 1);
 							this.dataSource._updateChangeSubscription();
+
+							this.toastService.openFromComponent<ToastComponent, Toast>(ToastComponent, {
+								duration: 2500,
+								data: {
+									title: `${hero.hero_name} ${MessagesLocalized["DELETED"]}`,
+									type: "success",
+								},
+							});
 						},
 						error: (error) => {
 							if (isDevMode()) console.error(error);
+
+							this.toastService.openFromComponent<ToastComponent, Toast>(ToastComponent, {
+								duration: 2500,
+								data: {
+									type: "error",
+								},
+							});
 						},
 					})
 				);
