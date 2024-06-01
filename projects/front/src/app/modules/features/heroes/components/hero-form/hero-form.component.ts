@@ -1,28 +1,26 @@
-import { HeroSecretIdentityStatus } from "./../../../../../../../back/src/enums/hero.enum";
-import { Gender } from "./../../../../../../../back/src/enums/common.enum";
+
 import { CommonModule } from "@angular/common";
 import { Component, Input, inject } from "@angular/core";
 import { FormBuilder, ReactiveFormsModule, Validators } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
-import {
-	HeroKeysLocalized,
-	HeroSecretIdentityStatusLocalized,
-	HeroSuperpowerLocalized,
-	HeroTeamAffiliationLocalized,
-} from "../../../shared/enums/hero.enum";
-import { IHeroCreate } from "../../../../../../../back/src/interfaces/hero.interface";
-import { mapKeysToArray } from "../../../shared/utils/mappers.util";
 import { MatButtonModule } from "@angular/material/button";
-import { ModelFormGroup } from "../../../shared/interfaces/common.interface";
-import { HeroSuperpower, HeroTeamAffiliation } from "../../../../../../../back/src/enums/hero.enum";
 import { MatSelectModule } from "@angular/material/select";
 import { ActivatedRoute, RouterModule } from "@angular/router";
-import { RouteEnum } from "../../constants/routes";
+
+import { CommonComponent } from "../../../../core/components/common/common.component";
+
 import { HeroService } from "../../services/hero.service";
-import { CommonComponent } from "../common/common.component";
-import { GenderLocalized } from "../../../shared/enums/common.enum";
+import { RouteEnum } from "../../../../core/constants/routes";
+import { GenderLocalized } from "../../../../shared/enums/common.enum";
+import { Gender } from "../../../../../../../../back/src/enums/common.enum";
+import { HeroSecretIdentityStatus, HeroSuperpower, HeroTeamAffiliation } from "../../../../../../../../back/src/enums/hero.enum";
+import { HeroKeysLocalized, HeroSecretIdentityStatusLocalized, HeroSuperpowerLocalized, HeroTeamAffiliationLocalized } from "../../enums/hero.enum";
+import { ModelFormGroup } from "../../../../shared/interfaces/common.interface";
+import { IHeroCreate } from "../../../../../../../../back/src/interfaces/hero.interface";
+
+import { mapKeysToArray } from "../../../../shared/utils/mappers.util";
 
 type Variant = "create" | "update";
 
@@ -54,13 +52,13 @@ const HeroKeysIcons: Record<keyof IHeroCreate, string> = {
  * This component is a form for the Hero model
  */
 @Component({
-	selector: "form-hero",
+	selector: 'hero-form',
 	standalone: true,
 	imports: [CommonModule, RouterModule, ReactiveFormsModule, MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule],
-	templateUrl: "./form-hero.component.html",
-	styleUrl: "./form-hero.component.scss",
+	templateUrl: './hero-form.component.html',
+	styleUrl: './hero-form.component.scss',
 })
-export class FormHeroComponent extends CommonComponent {
+export class HeroFormComponent extends CommonComponent {
 	/**
 	 * Injected dependency for Form Builder
 	 */

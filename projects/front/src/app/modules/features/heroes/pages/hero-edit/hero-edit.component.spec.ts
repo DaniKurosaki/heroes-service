@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageCreateComponent } from './page-create.component';
+import { HeroEditComponent } from './hero-edit.component';
 
-describe('PageCreateComponent', () => {
-  let component: PageCreateComponent;
-  let fixture: ComponentFixture<PageCreateComponent>;
+describe('HeroEditComponent', () => {
+  let component: HeroEditComponent;
+  let fixture: ComponentFixture<HeroEditComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PageCreateComponent]
+      imports: [HeroEditComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PageCreateComponent);
+    fixture = TestBed.createComponent(HeroEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

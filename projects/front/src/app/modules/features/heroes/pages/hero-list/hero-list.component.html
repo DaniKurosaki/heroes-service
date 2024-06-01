@@ -5,7 +5,7 @@
 		<input matInput (keyup)="applyFilter($event)" placeholder="Mia" #input />
 	</mat-form-field>
 
-	<a mat-flat-button color="primary"  [routerLink]="'/' + RouteEnum.CREATE">
+	<a mat-flat-button color="primary"  [routerLink]="'/' + HeroSubRouteEnum.CREATE">
 		<mat-icon>add</mat-icon>
 
 		<span>{{ localizedMessages["ADD"] }}</span>

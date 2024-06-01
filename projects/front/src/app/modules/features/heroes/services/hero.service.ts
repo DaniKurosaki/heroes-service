@@ -1,8 +1,9 @@
 import { Injectable, inject } from "@angular/core";
-import { Observable } from "rxjs";
-import { IHero, IHeroCreate } from "../../../../../../back/src/interfaces/hero.interface";
-import { environment } from "../../../../environments/environment";
 import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+
+import { environment } from "../../../../../environments/environment";
+import { IHero, IHeroCreate } from "../../../../../../../back/src/interfaces/hero.interface";
 
 @Injectable({
 	providedIn: "root",

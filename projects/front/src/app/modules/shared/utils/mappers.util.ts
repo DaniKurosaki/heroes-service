@@ -10,6 +10,6 @@ export function mapValuesToArray<T extends object>(enumObject: T): T[keyof T][] 
 	return Object.values(enumObject);
 }
 
-export function mapRecordToKeyValuePair<T extends Record<K, V>, K extends string | number | symbol, V>(record: T): KeyValuePair<K, V>[] {
-	return Object.entries(record).map<KeyValuePair<K, V>>(([key, value]) => ({ key: key as K, value: value as V }));
+export function mapRecordToKeyValuePair<T extends Record<K, V>, V, K extends string>(record: T): KeyValuePair<V, K>[] {
+	return Object.entries(record).map<KeyValuePair<V, K>>(([key, value]) => ({ key: key as K, value: value as V }));
 }
