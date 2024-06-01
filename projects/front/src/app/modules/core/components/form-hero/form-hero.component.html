@@ -1,0 +1,39 @@
+<form class="mat-elevation-z8" [formGroup]="form">
+	@for (field of fields; track $index) {
+	<mat-form-field appearance="outline">
+		<mat-label>{{ HeroKeysLocalized[field] }}</mat-label>
+
+		<mat-icon matPrefix>{{ HeroKeysIcons[field] }}</mat-icon>
+
+		@if (isSelectField(field)) {
+		<mat-select formControlName="{{ field }}">
+			@for (option of selectsOptions[field] | keyvalue; track $index) {
+			<mat-option mat-option [value]="option.key">{{ option.value }}</mat-option>
+			}
+		</mat-select>
+		} @else {
+		<input matInput formControlName="{{ field }}" />
+		}
+	</mat-form-field>
+	}
+
+	<div class="buttons">
+		<button mat-flat-button color="warn" [routerLink]="'7' + RouteEnum.HOME">
+			<mat-icon>close</mat-icon>
+
+			<span>{{ cancelText }}</span>
+		</button>
+
+		<button mat-flat-button color="accent" (click)="resetForm()">
+			<mat-icon>restart_alt</mat-icon>
+
+			<span>{{ resetText }}</span>
+		</button>
+
+		<button mat-flat-button color="primary" (click)="submitForm()">
+			<mat-icon>check</mat-icon>
+
+			<span>{{ acceptText }}</span>
+		</button>
+	</div>
+</form>

@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
-import { RouteEnumLocalized } from "../../constants/routes";
+import { RouteEnum, RouteEnumLocalized } from "../../constants/routes";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
 
@@ -14,4 +14,9 @@ import { MatButtonModule } from "@angular/material/button";
 })
 export class NavbarComponent {
 	public tabs = RouteEnumLocalized;
+
+	/**
+	 * Reference to the RouteEnum
+	 */
+	protected readonly RouteEnum = RouteEnum;
 }
