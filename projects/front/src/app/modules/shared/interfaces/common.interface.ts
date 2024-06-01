@@ -1,8 +1,8 @@
 import { FormControl, FormGroup } from "@angular/forms";
 
-export interface KeyValuePair<K extends string | number | symbol, T = string> {
+export interface KeyValuePair<V = string, K extends string = string> {
 	key: K;
-	value: T;
+	value: V;
 }
 
 export type ModelFormGroup<T> = FormGroup<{

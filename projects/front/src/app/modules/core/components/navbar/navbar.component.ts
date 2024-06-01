@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
-import { RouteEnum, RouteEnumLocalized } from "../../constants/routes";
+import { NavbarRoutesLocalized, RouteEnum } from "../../constants/routes";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
 
@@ -13,7 +13,7 @@ import { MatButtonModule } from "@angular/material/button";
 	styleUrls: ["./navbar.component.scss"],
 })
 export class NavbarComponent {
-	public tabs = RouteEnumLocalized;
+	public tabs = NavbarRoutesLocalized;
 
 	/**
 	 * Reference to the RouteEnum

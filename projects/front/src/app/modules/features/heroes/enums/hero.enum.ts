@@ -1,5 +1,6 @@
-import { IHero } from "../../../../../../back/src/interfaces/hero.interface";
-import { HeroSecretIdentityStatus, HeroSuperpower, HeroTeamAffiliation } from "./../../../../../../back/src/enums/hero.enum";
+import { HeroSecretIdentityStatus, HeroSuperpower, HeroTeamAffiliation } from "../../../../../../../back/src/enums/hero.enum";
+import { IHero } from "../../../../../../../back/src/interfaces/hero.interface";
+
 
 export const HeroKeysLocalized: Record<keyof IHero, string> = {
 	["id"]: "ID",

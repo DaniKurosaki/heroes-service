@@ -1,3 +1,4 @@
+import { HeroKeysLocalized } from "./../../enums/hero.enum";
 import { CommonModule } from "@angular/common";
 import { Subject, debounceTime, distinctUntilChanged } from "rxjs";
 import { AfterViewInit, Component, ViewChild, inject, isDevMode } from "@angular/core";
@@ -13,15 +14,13 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatSort, MatSortModule } from "@angular/material/sort";
 import { MatTableDataSource, MatTableModule } from "@angular/material/table";
 
-import { CommonComponent } from "../../core/components/common/common.component";
-import { ModalConfirmComponent } from "../../core/components/modal-confirm/modal-confirm.component";
-import { DialogData } from "../../core/components/modal-confirm/modal-confirm.component";
+import { CommonComponent } from "../../../../core/components/common/common.component";
+import { DialogData, ModalConfirmComponent } from "../../../../core/components/modal-confirm/modal-confirm.component";
 
-import { IHero } from "../../../../../../back/src/interfaces/hero.interface";
-import { RouteEnum } from "../../core/constants/routes";
-import { HeroService } from "../../core/services/hero.service";
-import { HeroKeysLocalized } from "../../shared/enums/hero.enum";
-import { GenderLocalized } from "../../shared/enums/common.enum";
+import { HeroService } from "../../services/hero.service";
+import { GenderLocalized } from "../../../../shared/enums/common.enum";
+import { HeroSubRouteEnum, RouteEnum } from "../../../../core/constants/routes";
+import { IHero } from "../../../../../../../../back/src/interfaces/hero.interface";
 
 /**
  * Extra columns for the table that are not part of the data model
@@ -71,7 +70,7 @@ const MessagesLocalized: Record<Messages, string> = {
  * This page serve as the home page for the application, it displays a table with all the heroes and allows the user to interact with them
  */
 @Component({
-	selector: "page-home",
+	selector: "hero-list",
 	standalone: true,
 	imports: [
 		CommonModule,
@@ -85,10 +84,10 @@ const MessagesLocalized: Record<Messages, string> = {
 		MatSortModule,
 		MatTableModule,
 	],
-	templateUrl: "./page-home.component.html",
-	styleUrl: "./page-home.component.scss",
+	templateUrl: "./hero-list.component.html",
+	styleUrl: "./hero-list.component.scss",
 })
-export class PageHomeComponent extends CommonComponent implements AfterViewInit {
+export class HeroListComponent extends CommonComponent implements AfterViewInit {
 	/**
 	 * Injected dependency for Router
 	 */
@@ -155,6 +154,11 @@ export class PageHomeComponent extends CommonComponent implements AfterViewInit 
 	protected readonly RouteEnum = RouteEnum;
 
 	/**
+	 * Reference to the HeroSubRouteEnum
+	 */
+	protected readonly HeroSubRouteEnum = HeroSubRouteEnum;
+
+	/**
 	 * Override of the load method to fetch the data from the Hero Service
 	 */
 	override load(): void {
@@ -212,7 +216,7 @@ export class PageHomeComponent extends CommonComponent implements AfterViewInit 
 	 * @param hero Hero to be edited, ID is passed as a parameter to the route
 	 */
 	private edit(hero: IHero): void {
-		this.router.navigate([RouteEnum.EDIT, hero.id]);
+		this.router.navigate([HeroSubRouteEnum.EDIT, hero.id]);
 	}
 
 	/**
