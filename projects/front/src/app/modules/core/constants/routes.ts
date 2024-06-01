@@ -5,11 +5,11 @@ export enum RouteEnum {
 }
 
 export enum HeroSubRouteEnum {
-	LIST = `${RouteEnum.HEROES}/list`,
-	CREATE = `${RouteEnum.HEROES}/create`,
-	EDIT = `${RouteEnum.HEROES}/edit`,
+	LIST = `list`,
+	CREATE = `create`,
+	EDIT = `edit`,
 }
 
 export const NavbarRoutesLocalized: KeyValuePair[] = [
-	{ key: HeroSubRouteEnum.LIST, value: "Heroes" },
+	{ key: `${RouteEnum.HEROES}/${HeroSubRouteEnum.LIST}`, value: "Heroes" },
 ];

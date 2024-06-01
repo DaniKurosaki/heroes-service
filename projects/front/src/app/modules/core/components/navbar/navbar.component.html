@@ -6,7 +6,7 @@
 
 		<nav class="nav">
 			@for (tab of tabs; track $index) {
-			<a mat-button class="tab" [routerLink]="tab.key" routerLinkActive="tab--active">{{ tab.value }}</a>
+			<a mat-button color="primary" class="tab" [routerLink]="tab.key" routerLinkActive="tab--active">{{ tab.value }}</a>
 			}
 		</nav>
 	</mat-toolbar>

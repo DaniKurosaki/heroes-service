@@ -1,18 +1,17 @@
-
 import { CommonModule } from "@angular/common";
-import { Component, Input, inject } from "@angular/core";
+import { Component, Input, inject, isDevMode } from "@angular/core";
 import { FormBuilder, ReactiveFormsModule, Validators } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { MatSelectModule } from "@angular/material/select";
-import { ActivatedRoute, RouterModule } from "@angular/router";
+import { ActivatedRoute, Router, RouterModule } from "@angular/router";
 
 import { CommonComponent } from "../../../../core/components/common/common.component";
 
 import { HeroService } from "../../services/hero.service";
-import { RouteEnum } from "../../../../core/constants/routes";
+import { HeroSubRouteEnum, RouteEnum } from "../../../../core/constants/routes";
 import { GenderLocalized } from "../../../../shared/enums/common.enum";
 import { Gender } from "../../../../../../../../back/src/enums/common.enum";
 import { HeroSecretIdentityStatus, HeroSuperpower, HeroTeamAffiliation } from "../../../../../../../../back/src/enums/hero.enum";
@@ -52,13 +51,18 @@ const HeroKeysIcons: Record<keyof IHeroCreate, string> = {
  * This component is a form for the Hero model
  */
 @Component({
-	selector: 'hero-form',
+	selector: "hero-form",
 	standalone: true,
 	imports: [CommonModule, RouterModule, ReactiveFormsModule, MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule],
-	templateUrl: './hero-form.component.html',
-	styleUrl: './hero-form.component.scss',
+	templateUrl: "./hero-form.component.html",
+	styleUrl: "./hero-form.component.scss",
 })
 export class HeroFormComponent extends CommonComponent {
+	/**
+	 * Injected dependency for Router
+	 */
+	protected readonly router: Router = inject(Router);
+
 	/**
 	 * Injected dependency for Form Builder
 	 */
@@ -140,9 +144,11 @@ export class HeroFormComponent extends CommonComponent {
 	override load(): void {
 		if (this.variant === "create" || !this.id) return;
 
-		this.heroService.getById(this.id).subscribe((hero) => {
-			this.form.patchValue(hero);
-		});
+		this.subscriptions.push(
+			this.heroService.getById(this.id).subscribe((hero) => {
+				this.form.patchValue(hero);
+			})
+		);
 	}
 
 	/**
@@ -185,6 +191,7 @@ export class HeroFormComponent extends CommonComponent {
 	public submitForm(): void {
 		this.form.markAllAsTouched();
 		if (!this.form.valid) return;
+
 		this[this.variant]();
 	}
 
@@ -192,7 +199,16 @@ export class HeroFormComponent extends CommonComponent {
 	 * Creates a new Hero
 	 */
 	private create(): void {
-		this.heroService.create(this.form.getRawValue()).subscribe();
+		this.subscriptions.push(
+			this.heroService.create(this.form.getRawValue()).subscribe({
+				next: () => {
+					this.router.navigate([RouteEnum.HEROES, HeroSubRouteEnum.LIST]);
+				},
+				error: (error) => {
+					if (isDevMode()) console.error(error);
+				},
+			})
+		);
 	}
 
 	/**
@@ -200,6 +216,16 @@ export class HeroFormComponent extends CommonComponent {
 	 */
 	private update(): void {
 		if (!this.id) return;
-		this.heroService.update(this.id, this.form.value).subscribe();
+
+		this.subscriptions.push(
+			this.heroService.update(this.id, this.form.value).subscribe({
+				next: () => {
+					this.router.navigate([RouteEnum.HEROES, HeroSubRouteEnum.LIST]);
+				},
+				error: (error) => {
+					if (isDevMode()) console.error(error);
+				},
+			})
+		);
 	}
 }

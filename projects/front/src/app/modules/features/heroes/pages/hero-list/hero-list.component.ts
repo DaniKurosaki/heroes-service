@@ -21,6 +21,7 @@ import { HeroService } from "../../services/hero.service";
 import { GenderLocalized } from "../../../../shared/enums/common.enum";
 import { HeroSubRouteEnum, RouteEnum } from "../../../../core/constants/routes";
 import { IHero } from "../../../../../../../../back/src/interfaces/hero.interface";
+import { CapitalizePipe } from "../../../../shared/pipes/capitalize.pipe";
 
 /**
  * Extra columns for the table that are not part of the data model
@@ -83,6 +84,7 @@ const MessagesLocalized: Record<Messages, string> = {
 		MatProgressSpinnerModule,
 		MatSortModule,
 		MatTableModule,
+		CapitalizePipe,
 	],
 	templateUrl: "./hero-list.component.html",
 	styleUrl: "./hero-list.component.scss",
@@ -122,6 +124,17 @@ export class HeroListComponent extends CommonComponent implements AfterViewInit 
 	 * Filter queue to debounce the filter input
 	 */
 	public filterQueue$: Subject<string> = new Subject<string>();
+
+	/**
+	 * Filter predicate to search for the filter value in the data
+	 */
+	public filterPredicate: (data: IHero, filter: string) => boolean = (data: IHero, filter: string) => {
+		return (
+			data.first_name.toLowerCase().includes(filter) ||
+			data.last_name.toLowerCase().includes(filter) ||
+			data.hero_name.toLowerCase().includes(filter)
+		);
+	};
 
 	/**
 	 * Columns to be displayed in the table
@@ -190,6 +203,7 @@ export class HeroListComponent extends CommonComponent implements AfterViewInit 
 	ngAfterViewInit() {
 		this.dataSource.paginator = this.paginator;
 		this.dataSource.sort = this.sort;
+		this.dataSource.filterPredicate = this.filterPredicate;
 	}
 
 	/**
@@ -216,7 +230,7 @@ export class HeroListComponent extends CommonComponent implements AfterViewInit 
 	 * @param hero Hero to be edited, ID is passed as a parameter to the route
 	 */
 	private edit(hero: IHero): void {
-		this.router.navigate([HeroSubRouteEnum.EDIT, hero.id]);
+		this.router.navigate([RouteEnum.HEROES, HeroSubRouteEnum.EDIT, hero.id]);
 	}
 
 	/**
@@ -233,21 +247,25 @@ export class HeroListComponent extends CommonComponent implements AfterViewInit 
 			},
 		});
 
-		dialogRef.backdropClick().subscribe((_) => dialogRef.close());
+		this.subscriptions.push(
+			dialogRef.backdropClick().subscribe((_) => dialogRef.close()),
 
-		dialogRef.afterClosed().subscribe((result) => {
-			if (!result) return;
+			dialogRef.afterClosed().subscribe((result) => {
+				if (!result) return;
 
-			this.heroService.deleteById(hero.id).subscribe({
-				next: (_) => {
-					const index = this.dataSource.data.findIndex((item) => item.id === hero.id);
-					this.dataSource.data.splice(index, 1);
-					this.dataSource._updateChangeSubscription();
-				},
-				error: (error) => {
-					if (isDevMode()) console.error(error);
-				},
-			});
-		});
+				this.subscriptions.push(
+					this.heroService.deleteById(hero.id).subscribe({
+						next: (_) => {
+							const index = this.dataSource.data.findIndex((item) => item.id === hero.id);
+							this.dataSource.data.splice(index, 1);
+							this.dataSource._updateChangeSubscription();
+						},
+						error: (error) => {
+							if (isDevMode()) console.error(error);
+						},
+					})
+				);
+			})
+		);
 	}
 }

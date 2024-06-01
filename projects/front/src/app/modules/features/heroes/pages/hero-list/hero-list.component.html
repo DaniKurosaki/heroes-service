@@ -5,7 +5,7 @@
 		<input matInput (keyup)="applyFilter($event)" placeholder="Mia" #input />
 	</mat-form-field>
 
-	<a mat-flat-button color="primary"  [routerLink]="'/' + HeroSubRouteEnum.CREATE">
+	<a mat-flat-button color="primary" [routerLink]="'/' + RouteEnum.HEROES + '/' + HeroSubRouteEnum.CREATE">
 		<mat-icon>add</mat-icon>
 
 		<span>{{ localizedMessages["ADD"] }}</span>
@@ -18,11 +18,13 @@
 		@for(column of displayedColumns; track $index) { @if (column !== 'edit' && column !== 'delete') {
 		<ng-container [matColumnDef]="column">
 			<th mat-header-cell *matHeaderCellDef mat-sort-header>{{ localizedColumns[column] }}</th>
-			<td mat-cell *matCellDef="let element">{{ column === "gender" ? GenderLocalized[element[column]] : element[column] }}</td>
+
+			<td mat-cell *matCellDef="let element">{{ column === "gender" ? GenderLocalized[element[column]] : (element[column] | capitalize) }}</td>
 		</ng-container>
 		} @else {
 		<ng-container [matColumnDef]="column">
 			<th mat-header-cell *matHeaderCellDef>{{ localizedExtraColumns[column] }}</th>
+
 			<td mat-cell *matCellDef="let element">
 				<button mat-mini-fab [color]="column === 'delete' ? 'warn' : 'primary'" (click)="interact(column, element)">
 					<mat-icon justify="end">{{ column }}</mat-icon>
@@ -34,11 +36,11 @@
 		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 		<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
-		<tr class="mat-row" *matNoDataRow>
+		<tr *matNoDataRow>
 			@if(dataSource.filter) {
-			<td class="mat-cell" colspan="99">{{ localizedMessages["NO_DATA_MATCHING"] + '"' + input.value + '"' }}</td>
+			<td class="no-data" colspan="99">{{ localizedMessages["NO_DATA_MATCHING"] + '"' + input.value + '"' }}</td>
 			} @else {
-			<td class="mat-cell" colspan="99">{{ localizedMessages["NO_DATA"] }}</td>
+			<td class="no-data" colspan="99">{{ localizedMessages["NO_DATA"] }}</td>
 			}
 		</tr>
 	</table>
