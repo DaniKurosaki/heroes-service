@@ -1,7 +1,7 @@
-import { DialogData } from "./../../core/components/modal-confirm/modal-confirm.component";
 import { CommonModule } from "@angular/common";
+import { Subject, debounceTime, distinctUntilChanged } from "rxjs";
 import { AfterViewInit, Component, ViewChild, inject, isDevMode } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, RouterModule } from "@angular/router";
 
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialog } from "@angular/material/dialog";
@@ -9,19 +9,19 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { MatPaginator } from "@angular/material/paginator";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatSort, MatSortModule } from "@angular/material/sort";
 import { MatTableDataSource, MatTableModule } from "@angular/material/table";
 
 import { CommonComponent } from "../../core/components/common/common.component";
 import { ModalConfirmComponent } from "../../core/components/modal-confirm/modal-confirm.component";
+import { DialogData } from "../../core/components/modal-confirm/modal-confirm.component";
 
+import { IHero } from "../../../../../../back/src/interfaces/hero.interface";
+import { RouteEnum } from "../../core/constants/routes";
 import { HeroService } from "../../core/services/hero.service";
 import { HeroKeysLocalized } from "../../shared/enums/hero.enum";
-import { RouteEnum } from "../../core/constants/routes";
-import { IHero } from "../../../../../../back/src/interfaces/hero.interface";
 import { GenderLocalized } from "../../shared/enums/common.enum";
-import { Subject, debounceTime, distinctUntilChanged } from "rxjs";
-import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 /**
  * Extra columns for the table that are not part of the data model
@@ -54,7 +54,7 @@ const DialogTextsLocalized: Record<DialogTexts, string> = {
 /**
  * Localized text keys for this component messages
  */
-type Messages = "NO_DATA_MATCHING" | "NO_DATA" | "ERROR";
+type Messages = "NO_DATA_MATCHING" | "NO_DATA" | "ERROR" | "FILTER" | "ADD";
 
 /**
  * Localized texts for this component messages
@@ -63,6 +63,8 @@ const MessagesLocalized: Record<Messages, string> = {
 	["NO_DATA_MATCHING"]: "No data matching the filter ",
 	["NO_DATA"]: "No data to display",
 	["ERROR"]: "An error occurred while processing the request",
+	["FILTER"]: "Filter",
+	["ADD"]: "Add new hero",
 };
 
 /**
@@ -73,6 +75,7 @@ const MessagesLocalized: Record<Messages, string> = {
 	standalone: true,
 	imports: [
 		CommonModule,
+		RouterModule,
 		MatButtonModule,
 		MatFormFieldModule,
 		MatIconModule,
@@ -145,6 +148,11 @@ export class PageHomeComponent extends CommonComponent implements AfterViewInit 
 	 * Localized texts for the dialog messages
 	 */
 	protected readonly localizedMessages: Record<Messages, string> = MessagesLocalized;
+
+	/**
+	 * Reference to the RouteEnum
+	 */
+	protected readonly RouteEnum = RouteEnum;
 
 	/**
 	 * Override of the load method to fetch the data from the Hero Service

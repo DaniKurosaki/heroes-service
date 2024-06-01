@@ -9,6 +9,7 @@
 @include mat.core();
 @include mat.all-component-themes(theme.$app-theme);
 
+
 html,
 body {
 	background-color: $white-fill;
@@ -20,4 +21,8 @@ body {
 body {
 	margin: 0;
 	font-family: 'Geist', sans-serif;
+}
+
+.mdc-button {
+	border-radius: 9999px !important;
 }

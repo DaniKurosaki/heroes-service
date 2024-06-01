@@ -1,6 +1,3 @@
-export enum GenderEnum {
-	MALE = "male",
-	FEMALE = "female",
-}
+export const Genders = ["male", "female"] as const;
 
-export type Genders = Lowercase<keyof typeof GenderEnum>;
+export type Gender = (typeof Genders)[number];

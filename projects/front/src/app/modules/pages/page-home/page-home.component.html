@@ -1,10 +1,15 @@
 <div class="modifiers" [hidden]="true">
 	<mat-form-field>
-		<mat-label>Filter</mat-label>
-		<input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input />
+		<mat-label>{{ localizedMessages["FILTER"] }}</mat-label>
+
+		<input matInput (keyup)="applyFilter($event)" placeholder="Mia" #input />
 	</mat-form-field>
 
-	<mat-paginator class="paginator" [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page"> </mat-paginator>
+	<a mat-flat-button color="primary"  [routerLink]="'/' + RouteEnum.CREATE">
+		<mat-icon>add</mat-icon>
+
+		<span>{{ localizedMessages["ADD"] }}</span>
+	</a>
 </div>
 
 @defer (when dataSource) {
@@ -40,8 +45,10 @@
 </div>
 } @loading (minimum 500ms) {
 <div class="table-section table-section--loading">
-	<mat-spinner class="spinner" color="accent"></mat-spinner>
+	<mat-spinner color="accent"></mat-spinner>
 </div>
 } @error {
 <p>{{ localizedMessages["ERROR"] }}</p>
 }
+
+<mat-paginator class="paginator" [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page"> </mat-paginator>

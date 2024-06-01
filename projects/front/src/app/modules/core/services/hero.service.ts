@@ -1,6 +1,6 @@
 import { Injectable, inject } from "@angular/core";
 import { Observable } from "rxjs";
-import { IHero } from "../../../../../../back/src/interfaces/hero.interface";
+import { IHero, IHeroCreate } from "../../../../../../back/src/interfaces/hero.interface";
 import { environment } from "../../../../environments/environment";
 import { HttpClient } from "@angular/common/http";
 
@@ -20,11 +20,11 @@ export class HeroService {
 		return this.http.get<IHero>(`${this.urlToEndpoint}/${id}`);
 	}
 
-	public create(data: IHero): Observable<IHero> {
+	public create(data: IHeroCreate): Observable<IHero> {
 		return this.http.post<IHero>(this.urlToEndpoint, data);
 	}
 
-	public update(id: string, data: IHero): Observable<IHero> {
+	public update(id: string, data: Partial<IHeroCreate>): Observable<IHero> {
 		return this.http.put<IHero>(`${this.urlToEndpoint}/${id}`, data);
 	}
 

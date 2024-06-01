@@ -1,11 +1,6 @@
-export enum GenderEnum {
-	MALE = "male",
-	FEMALE = "female",
-}
+import { Gender } from "../../../../../../back/src/enums/common.enum";
 
-export type Genders = Lowercase<keyof typeof GenderEnum>;
-
-export const GenderLocalized: Record<Genders, string> = {
-	[GenderEnum.MALE]: "Male",
-	[GenderEnum.FEMALE]: "Female",
+export const GenderLocalized: Record<Gender, string> = {
+	["male"]: "Male",
+	["female"]: "Female",
 };
