@@ -12,7 +12,7 @@
 			}
 		</mat-select>
 		} @else {
-		<input matInput formControlName="{{ field }}" />
+		<input [ngClass]="{ 'first-name': field === 'first_name' }" matInput formControlName="{{ field }}" />
 		}
 	</mat-form-field>
 	}
