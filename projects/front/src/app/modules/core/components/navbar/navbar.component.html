@@ -1,6 +1,8 @@
 <header class="header">
 	<mat-toolbar class="toolbar">
-		<img class="logo" src="assets/logo.svg" alt="logo" />
+		<a [routerLink]="RouteEnum.HOME">
+			<img class="logo" src="assets/logo.svg" alt="logo" />
+		</a>
 
 		<nav class="nav">
 			@for (tab of tabs; track $index) {

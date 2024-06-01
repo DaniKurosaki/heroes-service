@@ -1,4 +1,4 @@
-import serveless from "serverless-http";
+import serverless from "serverless-http";
 import express from "express";
 import mongoose from "mongoose";
 import HeroController from "./controllers/HeroController";
@@ -9,9 +9,9 @@ const app = express();
 const router = express.Router();
 
 mongoose
-    .connect(process.env.MONGO_CONNECT_URI!)
-    .then(() => console.log("Connected to MongoDB", process.env.MONGO_CONNECT_URI!))
-    .catch((err) => console.error("Could not connect to MongoDB:", err));
+	.connect(process.env.MONGO_CONNECT_URI!)
+	.then(() => console.log("Connected to MongoDB", process.env.MONGO_CONNECT_URI!))
+	.catch((err) => console.error("Could not connect to MongoDB:", err));
 
 app.use(express.json());
 
@@ -24,8 +24,8 @@ router.use("/heroes", HeroController);
 
 const port = process.env.PORT!;
 app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
+	console.log(`Server is running at http://localhost:${port}`);
 });
 
-module.exports.handler = serveless(app);
+module.exports.handler = serverless(app);
 export default app;
