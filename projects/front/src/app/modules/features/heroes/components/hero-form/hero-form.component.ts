@@ -57,9 +57,9 @@ type Messages = "FIELDS_ERROR" | "CREATED" | "UPDATED";
  * Localized texts for this component messages
  */
 const MessagesLocalized: Record<Messages, string> = {
-	["FIELDS_ERROR"]: "Please fill in all required fields",
-	["CREATED"]: " created successfully",
-	["UPDATED"]: " updated successfully",
+	["FIELDS_ERROR"]: $localize`:@@HeroForm.FieldsError:Please fill in all required fields`,
+	["CREATED"]: $localize`:@@HeroForm.Created: created successfully`,
+	["UPDATED"]: $localize`:@@HeroForm.Updated: updated successfully`,
 };
 
 /**

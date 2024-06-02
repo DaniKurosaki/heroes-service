@@ -11,5 +11,5 @@ export enum HeroSubRouteEnum {
 }
 
 export const NavbarRoutesLocalized: KeyValuePair[] = [
-	{ key: `${RouteEnum.HEROES}/${HeroSubRouteEnum.LIST}`, value: "Heroes" },
+	{ key: `${RouteEnum.HEROES}/${HeroSubRouteEnum.LIST}`, value: $localize`:@@NavbarRoutes.Heroes:Heroes` },
 ];

@@ -35,8 +35,8 @@ type ExtraColumns = "edit" | "delete";
  
  */
 const ExtraColumnsLocalized: Record<ExtraColumns, string> = {
-	["edit"]: "Edit",
-	["delete"]: "Delete",
+	["edit"]: $localize`:@@HeroListExtraColumns.Edit:Edit`,
+	["delete"]: $localize`:@@HeroListExtraColumns.Delete:Delete`,
 };
 
 /**
@@ -48,9 +48,9 @@ type DialogTexts = keyof DialogData;
  * Localized texts for the dialog messages
  */
 const DialogTextsLocalized: Record<DialogTexts, string> = {
-	["title"]: "Are you sure you want to delete ",
-	["cancelText"]: "Cancel",
-	["confirmText"]: "Confirm",
+	["title"]: $localize`:@@DialogTexts.Title:Are you sure you want to delete `,
+	["cancelText"]: $localize`:@@DialogTexts.Cancel:Cancel`,
+	["confirmText"]: $localize`:@@DialogTexts.Confirm:Confirm`,
 };
 
 /**
@@ -62,12 +62,12 @@ type Messages = "NO_DATA_MATCHING" | "NO_DATA" | "ERROR" | "FILTER" | "ADD" | "D
  * Localized texts for this component messages
  */
 const MessagesLocalized: Record<Messages, string> = {
-	["NO_DATA_MATCHING"]: "No data matching the filter ",
-	["NO_DATA"]: "No data to display",
-	["ERROR"]: "An error occurred while processing the request",
-	["FILTER"]: "Filter",
-	["ADD"]: "Add new hero",
-	["DELETED"]: "deleted successfully",
+	["NO_DATA_MATCHING"]: $localize`:@@HeroListMessages.NoDataMatching:No data matching the filter `,
+	["NO_DATA"]: $localize`:@@HeroListMessages.NoData:No data to display`,
+	["ERROR"]: $localize`:@@HeroListMessages.Error:An error occurred while processing the request`,
+	["FILTER"]: $localize`:@@HeroListMessages.Filter:Filter`,
+	["ADD"]: $localize`:@@HeroListMessages.Add:Add new hero`,
+	["DELETED"]: $localize`:@@HeroListMessages.Deleted: deleted successfully`,
 };
 
 /**
