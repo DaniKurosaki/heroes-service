@@ -13,3 +13,11 @@ export interface ILoad {
 	load(): void;
 	unload(): void;
 }
+
+export type ToastType = "success" | "error";
+
+export interface Toast {
+	title?: string;
+	message?: string;
+	type: ToastType;
+}

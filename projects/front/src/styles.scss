@@ -1,14 +1,13 @@
 @use "@angular/material" as mat;
-@use './styles/material/typography.scss' as typography;
-@use './styles/material/theme' as theme;
+@use "./styles/material/typography.scss" as typography;
+@use "./styles/material/theme" as theme;
 
-@import './styles/reset.scss';
-@import './styles/material/typography.scss';
-@import './styles/colors.scss';
+@import "./styles/reset.scss";
+@import "./styles/material/typography.scss";
+@import "./styles/colors.scss";
 
 @include mat.core();
 @include mat.all-component-themes(theme.$app-theme);
-
 
 html,
 body {
@@ -20,9 +19,16 @@ body {
 
 body {
 	margin: 0;
-	font-family: 'Geist', sans-serif;
+	font-family: "Geist", sans-serif;
 }
 
 .mdc-button {
 	border-radius: 9999px !important;
+}
+
+.mat-mdc-snack-bar-container {
+	& .mdc-snackbar__surface,
+	& .mdc-snackbar__label {
+		padding: 0;
+	}
 }

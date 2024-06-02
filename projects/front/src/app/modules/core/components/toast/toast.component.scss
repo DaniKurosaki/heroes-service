@@ -1,0 +1,41 @@
+@import "../../../../../styles/colors.scss";
+
+:host {
+	display: flex;
+
+	&.toast {
+		&--success {
+			background-color: $success-container;
+		}
+
+		&--warning {
+			background-color: $warning-container;
+		}
+
+		&--error {
+			background-color: $error-container;
+		}
+	}
+}
+
+.title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 1rem;
+
+	font-weight: 600;
+
+	&--success {
+		color: $on-success-container;
+	}
+
+	&--warning {
+		color: $on-warning-container;
+	}
+
+	&--error {
+		color: $on-error-container;
+	}
+}
