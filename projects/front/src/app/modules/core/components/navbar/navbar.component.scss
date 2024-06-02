@@ -17,6 +17,15 @@
 	height: 2rem;
 }
 
+.right {
+	height: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5rem;
+}
+
 .nav {
 	display: flex;
 	align-items: center;
@@ -24,7 +33,7 @@
 }
 
 .tab {
-	background-color: $white-fill;
+	background-color: var(--bg-color);
 
 	&--active {
 		&::ng-deep.mdc-button__label {

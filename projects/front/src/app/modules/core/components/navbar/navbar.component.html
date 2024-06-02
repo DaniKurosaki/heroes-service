@@ -4,10 +4,15 @@
 			<img class="logo" src="assets/logo.svg" alt="logo" />
 		</a>
 
-		<nav class="nav">
-			@for (tab of tabs; track $index) {
-			<a mat-button color="primary" class="tab" [routerLink]="tab.key" routerLinkActive="tab--active">{{ tab.value }}</a>
-			}
-		</nav>
+		<div class="right">
+			<nav class="nav">
+				@for (tab of tabs; track $index) {
+				<a mat-button color="primary" class="tab" [routerLink]="tab.key" routerLinkActive="tab--active">{{ tab.value }}</a>
+				}
+			</nav>
+
+			<mat-slide-toggle #modeSwitch (change)="toggleTheme()" color="primary" class="theme-toggle" aria-label="Toggle Dark Theme">
+			</mat-slide-toggle>
+		</div>
 	</mat-toolbar>
 </header>
