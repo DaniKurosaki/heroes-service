@@ -9,5 +9,7 @@
 			<a mat-button color="primary" class="tab" [routerLink]="tab.key" routerLinkActive="tab--active">{{ tab.value }}</a>
 			}
 		</nav>
+
+		<mat-slide-toggle #modeSwitch (change)="toggleTheme()" color="primary" class="theme-toggle" aria-label="Toggle Dark Theme"> </mat-slide-toggle>
 	</mat-toolbar>
 </header>

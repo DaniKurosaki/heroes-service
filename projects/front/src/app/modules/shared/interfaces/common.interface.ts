@@ -14,6 +14,8 @@ export interface ILoad {
 	unload(): void;
 }
 
+export type ThemeType = 'light' | 'dark';
+
 export type ToastType = "success" | "error";
 
 export interface Toast {

@@ -24,7 +24,7 @@
 }
 
 .tab {
-	background-color: $white-fill;
+	background-color: var(--bg-color);
 
 	&--active {
 		&::ng-deep.mdc-button__label {

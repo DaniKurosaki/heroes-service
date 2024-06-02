@@ -1,6 +1,22 @@
 @use "@angular/material" as mat;
-@import './typography.scss';
+@import "./typography.scss";
 
-$app-theme: mat.define-light-theme( (
-	typography: $geist-typography,
-));
+$light-theme: mat.define-light-theme(
+	(
+		typography: $geist-typography,
+		color: (
+			primary: mat.define-palette(mat.$pink-palette),
+			accent: mat.define-palette(mat.$blue-grey-palette),
+		),
+	)
+);
+
+$dark-theme: mat.define-dark-theme(
+	(
+		typography: $geist-typography,
+		color: (
+			primary: mat.define-palette(mat.$pink-palette),
+			accent: mat.define-palette(mat.$blue-grey-palette),
+		),
+	)
+);
