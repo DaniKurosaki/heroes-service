@@ -35,8 +35,8 @@ type ExtraColumns = "edit" | "delete";
  
  */
 const ExtraColumnsLocalized: Record<ExtraColumns, string> = {
-	["edit"]: "Edit",
-	["delete"]: "Delete",
+	["edit"]: $localize`:@@HeroListExtraColumns.Edit:Edit`,
+	["delete"]: $localize`:@@HeroListExtraColumns.Delete:Delete`,
 };
 
 /**
@@ -48,26 +48,27 @@ type DialogTexts = keyof DialogData;
  * Localized texts for the dialog messages
  */
 const DialogTextsLocalized: Record<DialogTexts, string> = {
-	["title"]: "Are you sure you want to delete ",
-	["cancelText"]: "Cancel",
-	["confirmText"]: "Confirm",
+	["title"]: $localize`:@@DialogTexts.Title:Are you sure you want to delete `,
+	["cancelText"]: $localize`:@@DialogTexts.Cancel:Cancel`,
+	["confirmText"]: $localize`:@@DialogTexts.Confirm:Confirm`,
 };
 
 /**
  * Localized text keys for this component messages
  */
-type Messages = "NO_DATA_MATCHING" | "NO_DATA" | "ERROR" | "FILTER" | "ADD" | "DELETED";
+type Messages = "NO_DATA_MATCHING" | "NO_DATA" | "ERROR" | "FILTER" | "ITEMS_PER_PAGE" | "ADD" | "DELETED";
 
 /**
  * Localized texts for this component messages
  */
 const MessagesLocalized: Record<Messages, string> = {
-	["NO_DATA_MATCHING"]: "No data matching the filter ",
-	["NO_DATA"]: "No data to display",
-	["ERROR"]: "An error occurred while processing the request",
-	["FILTER"]: "Filter",
-	["ADD"]: "Add new hero",
-	["DELETED"]: "deleted successfully",
+	["NO_DATA_MATCHING"]: $localize`:@@HeroListMessages.NoDataMatching:No data matching the filter `,
+	["NO_DATA"]: $localize`:@@HeroListMessages.NoData:No data to display`,
+	["ERROR"]: $localize`:@@HeroListMessages.Error:An error occurred while processing the request`,
+	["FILTER"]: $localize`:@@HeroListMessages.Filter:Filter`,
+	["ITEMS_PER_PAGE"]: $localize`:@@HeroListMessages.ItemsPerPage:Items per page`,
+	["ADD"]: $localize`:@@HeroListMessages.Add:Add new hero`,
+	["DELETED"]: $localize`:@@HeroListMessages.Deleted: deleted successfully`,
 };
 
 /**
@@ -204,6 +205,7 @@ export class HeroListComponent extends CommonComponent implements AfterViewInit 
 	 * After view init lifecycle hook
 	 */
 	ngAfterViewInit() {
+		this.paginator._intl.itemsPerPageLabel = MessagesLocalized["ITEMS_PER_PAGE"];
 		this.dataSource.paginator = this.paginator;
 		this.dataSource.sort = this.sort;
 		this.dataSource.filterPredicate = this.filterPredicate;
@@ -244,7 +246,7 @@ export class HeroListComponent extends CommonComponent implements AfterViewInit 
 	private delete(hero: IHero): void {
 		const dialogRef = this.dialog.open(ModalConfirmComponent, {
 			data: {
-				title: `${DialogTextsLocalized["title"]} ${hero.hero_name}?`,
+				title: `${DialogTextsLocalized["title"]}${hero.hero_name}?`,
 				cancelText: DialogTextsLocalized["cancelText"],
 				confirmText: DialogTextsLocalized["confirmText"],
 			},

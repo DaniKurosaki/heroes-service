@@ -13,7 +13,7 @@ type Messages = "ERROR";
  * Localized texts for this component messages
  */
 const MessagesLocalized: Record<Messages, string> = {
-	["ERROR"]: "An error occurred while processing the request",
+	["ERROR"]: $localize`:@@Toast.DefaultError:An error occurred while processing the request`,
 };
 
 @Component({

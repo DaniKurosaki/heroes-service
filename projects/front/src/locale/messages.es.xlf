@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="Toast.DefaultError" datatype="html">
+        <source>An error occurred while processing the request</source>
+        <target>Ocurrió un error al procesar la petición</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/core/components/toast/toast.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="NavbarRoutes.Heroes" datatype="html">
+        <source>Heroes</source>
+		<target>Héroes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/core/constants/routes.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroForm.FieldsError" datatype="html">
+        <source>Please fill in all required fields</source>
+		<target>Por favor, complete todos los campos requeridos</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/components/hero-form/hero-form.component.ts</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroForm.Created" datatype="html">
+        <source> created successfully</source>
+		<target> creado exitosamente</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/components/hero-form/hero-form.component.ts</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroForm.Updated" datatype="html">
+        <source> updated successfully</source>
+		<target> actualizado exitosamente</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/components/hero-form/hero-form.component.ts</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroKeys.ID" datatype="html">
+        <source>ID</source>
+		<target>ID</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroKeys.FirstName" datatype="html">
+        <source>First Name</source>
+		<target>Nombre</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroKeys.LastName" datatype="html">
+        <source>Last Name</source>
+		<target>Apellido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroKeys.HeroName" datatype="html">
+        <source>Hero Name</source>
+		<target>Nombre de héroe</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroKeys.BirthDate" datatype="html">
+        <source>Birth Date</source>
+		<target>Fecha de nacimiento</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroKeys.SecretIdentity" datatype="html">
+        <source>Secret Identity</source>
+		<target>Identidad secreta</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroKeys.Gender" datatype="html">
+        <source>Gender</source>
+		<target>Género</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroKeys.Superpower" datatype="html">
+        <source>Super Power</source>
+		<target>Super Poder</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroKeys.TeamAffiliation" datatype="html">
+        <source>Team Affiliation</source>
+		<target>Afiliación de equipo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroSecretIdentityStatus.Public" datatype="html">
+        <source>Public</source>
+		<target>Público</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroSecretIdentityStatus.Secret" datatype="html">
+        <source>Secret</source>
+		<target>Secreto</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroSuperpower.Flight" datatype="html">
+        <source>Flight</source>
+		<target>Vuelo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroSuperpower.SuperStrength" datatype="html">
+        <source>Super Strength</source>
+		<target>Super Fuerza</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroSuperpower.Invisibility" datatype="html">
+        <source>Invisibility</source>
+		<target>Invisibilidad</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroSuperpower.Telekinesis" datatype="html">
+        <source>Telekinesis</source>
+		<target>Telequinesis</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroSuperpower.Teleportation" datatype="html">
+        <source>Teleportation</source>
+		<target>Teleportación</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroTeamAffiliation.Avengers" datatype="html">
+        <source>Avengers</source>
+		<target>Vengadores</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroTeamAffiliation.JusticeLeague" datatype="html">
+        <source>Justice League</source>
+		<target>Liga de la Justicia</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroTeamAffiliation.XMen" datatype="html">
+        <source>X-Men</source>
+		<target>X-Men</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroTeamAffiliation.FantasticFour" datatype="html">
+        <source>Fantastic Four</source>
+		<target>Cuatro Fantásticos</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/enums/hero.enum.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroListExtraColumns.Edit" datatype="html">
+        <source>Edit</source>
+		<target>Editar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/pages/hero-list/hero-list.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroListExtraColumns.Delete" datatype="html">
+        <source>Delete</source>
+		<target>Eliminar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/pages/hero-list/hero-list.component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="DialogTexts.Title" datatype="html">
+        <source>Are you sure you want to delete </source>
+		<target>¿Estás seguro de que quieres eliminar </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/pages/hero-list/hero-list.component.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="DialogTexts.Cancel" datatype="html">
+        <source>Cancel</source>
+		<target>Cancelar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/pages/hero-list/hero-list.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="DialogTexts.Confirm" datatype="html">
+        <source>Confirm</source>
+		<target>Confirmar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/pages/hero-list/hero-list.component.ts</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroListMessages.NoDataMatching" datatype="html">
+        <source>No data matching the filter </source>
+		<target>No hay datos que coincidan con el filtro </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/pages/hero-list/hero-list.component.ts</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroListMessages.NoData" datatype="html">
+        <source>No data to display</source>
+		<target>No hay datos que mostrar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/pages/hero-list/hero-list.component.ts</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroListMessages.Error" datatype="html">
+        <source>An error occurred while processing the request</source>
+		<target>Ocurrió un error al procesar la petición</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/pages/hero-list/hero-list.component.ts</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroListMessages.Filter" datatype="html">
+        <source>Filter</source>
+		<target>Filtrar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/pages/hero-list/hero-list.component.ts</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroListMessages.ItemsPerPage" datatype="html">
+        <source>Items per page</source>
+		<target>Elementos por página</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/pages/hero-list/hero-list.component.ts</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroListMessages.Add" datatype="html">
+        <source>Add new hero</source>
+		<target>Añadir nuevo héroe</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/pages/hero-list/hero-list.component.ts</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="HeroListMessages.Deleted" datatype="html">
+        <source> deleted successfully</source>
+		<target> eliminado exitosamente</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/features/heroes/pages/hero-list/hero-list.component.ts</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Locales.English" datatype="html">
+        <source>English</source>
+		<target>Inglés</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/enums/common.enum.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Locales.Spanish" datatype="html">
+        <source>Spanish</source>
+		<target>Español</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/enums/common.enum.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Gender.Male" datatype="html">
+        <source>Male</source>
+		<target>Masculino</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/enums/common.enum.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Gender.Female" datatype="html">
+        <source>Female</source>
+		<target>Femenino</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/enums/common.enum.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
