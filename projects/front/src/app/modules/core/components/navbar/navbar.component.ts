@@ -1,7 +1,7 @@
 import { ThemeManagerService } from "../../services/theme-manager.service";
 import { Component, ElementRef, ViewChild, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { ActivatedRoute, Router, RouterModule } from "@angular/router";
+import { Router, RouterModule } from "@angular/router";
 import { NavbarRoutesLocalized, RouteEnum } from "../../constants/routes";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
@@ -101,7 +101,15 @@ export class NavbarComponent {
 	 * @param locale Locale to change to
 	 */
 	changeLocale(locale: MatSelectChange): void {
-		this.router.navigate([`${locale.value}/`]);
+		console.log(this.router);
+
+		this.router.navigateByUrl(`/${locale.value}/`).then(() => {
+			console.log(this.router);
+			
+		}).catch((error) => {
+			console.error(error);
+		});
+		console.log(this.router);
 	}
 
 	/**

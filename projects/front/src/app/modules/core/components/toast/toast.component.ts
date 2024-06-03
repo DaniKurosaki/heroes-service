@@ -16,6 +16,9 @@ const MessagesLocalized: Record<Messages, string> = {
 	["ERROR"]: $localize`:@@Toast.DefaultError:An error occurred while processing the request`,
 };
 
+/**
+ * This core component is the toast used to display messages to the user
+ */
 @Component({
 	selector: "toast",
 	standalone: true,
@@ -24,12 +27,22 @@ const MessagesLocalized: Record<Messages, string> = {
 	styleUrl: "./toast.component.scss",
 })
 export class ToastComponent {
-	readonly snackBarRef = inject(MatSnackBarRef);
+	/**
+	 * Injected dependency for MatSnackBarRef
+	 */
+	protected readonly snackBarRef = inject(MatSnackBarRef);
 
-	@HostBinding("class") get hostClass() {
+	/**
+	 * Host binding class for the toast
+	 */
+	@HostBinding("class") get hostClass(): string {
 		return `toast toast--${this.data.type}`;
 	}
 
+	/**
+	 * Constructor
+	 * @param data Toast's data
+	 */
 	constructor(@Inject(MAT_SNACK_BAR_DATA) public data: Toast) {
 		if (data.type === "error" && !data.title) data.title = MessagesLocalized["ERROR"];
 	}

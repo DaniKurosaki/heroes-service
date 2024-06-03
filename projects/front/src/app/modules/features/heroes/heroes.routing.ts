@@ -4,6 +4,9 @@ import { HeroListComponent } from "./pages/hero-list/hero-list.component";
 import { HeroCreateComponent } from "./pages/hero-create/hero-create.component";
 import { HeroEditComponent } from "./pages/hero-edit/hero-edit.component";
 
+/**
+ * Routes for the Heroes module.
+ */
 export const heroesRoutes: Routes = [
 	{
 		path: "",
