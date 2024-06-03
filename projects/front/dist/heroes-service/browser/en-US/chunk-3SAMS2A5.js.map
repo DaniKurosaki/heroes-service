@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/modules/shared/pipes/capitalize.pipe.ts"],
+  "sourcesContent": ["import { Pipe, PipeTransform } from \"@angular/core\";\r\n\r\n/**\r\n * This pipe capitalizes the first letter of a string.\r\n */\r\n@Pipe({\r\n\tname: \"capitalize\",\r\n\tpure: true,\r\n\tstandalone: true,\r\n})\r\nexport class CapitalizePipe implements PipeTransform {\r\n\t/**\r\n\t * Capitalizes the first letter of a string.\r\n\t * @param value The string to capitalize.\r\n\t * @returns The string with the first letter capitalized.\r\n\t */\r\n\ttransform(value: string): string {\r\n\t\treturn value.charAt(0).toUpperCase() + value.slice(1);\r\n\t}\r\n}\r\n"],
+  "mappings": ";;;;;AAUM,IAAO,kBAAP,MAAO,gBAAc;;;;;;EAM1B,UAAU,OAAa;AACtB,WAAO,MAAM,OAAO,CAAC,EAAE,YAAW,IAAK,MAAM,MAAM,CAAC;EACrD;;;mBARY,iBAAc;AAAA;gGAAd,iBAAc,MAAA,MAAA,YAAA,KAAA,CAAA;AAArB,IAAO,iBAAP;",
+  "names": []
+}
