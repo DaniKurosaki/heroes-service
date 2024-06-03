@@ -1,0 +1,136 @@
+{
+	"redirects": [
+		{
+			"source": "/",
+			"has": [
+				{
+					"type": "header",
+					"key": "Accept-Language",
+					"value": "(^en.$)"
+				}
+			],
+			"destination": "/en"
+		},
+		{
+			"source": "/en/:path",
+			"has": [
+				{
+					"type": "header",
+					"key": "Accept-Language",
+					"value": "(^en.$)"
+				}
+			],
+			"destination": "/en/:path"
+		},
+		{
+			"source": "/en/(.)",
+			"has": [
+				{
+					"type": "header",
+					"key": "Accept-Language",
+					"value": "(^en.$)"
+				}
+			],
+			"destination": "/en/(.)"
+		},
+		{
+			"source": "/",
+			"has": [
+				{
+					"type": "header",
+					"key": "Accept-Language",
+					"value": "(^(?!^en).$)"
+				}
+			],
+			"destination": "/es"
+		},
+		{
+			"source": "/es/:path",
+			"has": [
+				{
+					"type": "header",
+					"key": "Accept-Language",
+					"value": "(^en.$)"
+				}
+			],
+			"destination": "/es/:path"
+		},
+		{
+			"source": "/es/(.)",
+			"has": [
+				{
+					"type": "header",
+					"key": "Accept-Language",
+					"value": "(^(?!^en).$)"
+				}
+			],
+			"destination": "/es/(.)"
+		}
+	],
+	"rewrites": [
+		{
+			"source": "/en/(.*)",
+			"destination": "/en/index.html"
+		},
+		{
+			"source": "/es/(.*)",
+			"destination": "/es/index.html"
+		},
+		{
+			"source": "",
+			"destination": "/en"
+		},
+		{
+			"source": "/",
+			"destination": "/en"
+		},
+		{
+			"source": "/:path",
+			"destination": "/en"
+		},
+		{
+			"source": "/en/:path",
+			"has": [
+				{
+					"type": "header",
+					"key": "Accept-Language",
+					"value": "(^en.$)"
+				}
+			],
+			"destination": "/en/:path"
+		},
+		{
+			"source": "/en/(.)",
+			"has": [
+				{
+					"type": "header",
+					"key": "Accept-Language",
+					"value": "(^en.$)"
+				}
+			],
+			"destination": "/en/(.)"
+		},
+		{
+			"source": "/es/:path",
+			"has": [
+				{
+					"type": "header",
+					"key": "Accept-Language",
+					"value": "(^(?!^en).*$)"
+				}
+			],
+			"destination": "/es/:path"
+		},
+		{
+			"source": "/es/(.)",
+			"has": [
+				{
+					"type": "header",
+					"key": "Accept-Language",
+					"value": "(^(?!^en).*$)"
+				}
+			],
+			"destination": "/es/(.)"
+		}
+	]
+}

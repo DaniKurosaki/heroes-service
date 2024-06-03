@@ -22,6 +22,9 @@ import { IHeroCreate } from "../../../../../../../../back/src/interfaces/hero.in
 import { mapKeysToArray } from "../../../../shared/utils/mappers.util";
 import { ToastComponent } from "../../../../core/components/toast/toast.component";
 
+/**
+ * Variant for the component
+ */
 type Variant = "create" | "update";
 
 /**

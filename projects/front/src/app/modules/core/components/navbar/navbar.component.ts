@@ -1,14 +1,14 @@
 import { ThemeManagerService } from "../../services/theme-manager.service";
 import { Component, ElementRef, ViewChild, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { ActivatedRoute, Router, RouterModule } from "@angular/router";
+import { Router, RouterModule } from "@angular/router";
 import { NavbarRoutesLocalized, RouteEnum } from "../../constants/routes";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { LOCALES, LocalesList } from "../../../shared/enums/common.enum";
 import { MatFormField } from "@angular/material/form-field";
-import { MatSelectModule } from "@angular/material/select";
+import { MatSelectChange, MatSelectModule } from "@angular/material/select";
 import { Locales } from "../../../shared/interfaces/common.interface";
 
 /**
@@ -40,7 +40,7 @@ export class NavbarComponent {
 	/**
 	 * Selected locale
 	 */
-	public selectedLocale: Locales = this.extractLocaleFromUrl(this.router.url);
+	public selectedLocale: Locales = this.extractLocaleFromUrl();
 
 	/**
 	 * Navbar routes
@@ -90,10 +90,17 @@ export class NavbarComponent {
 	 * @param url URL to extract the locale from
 	 * @returns The locale
 	 */
-	private extractLocaleFromUrl(url: string): Locales {
-		const locale = url.split("/")[1] as Locales;
-
+	private extractLocaleFromUrl(): Locales {
+		const locale = window.location.pathname.split("/")[1] as Locales;
 		return LOCALES.includes(locale) ? locale : "en";
+	}
+
+	/**
+	 * Changes the locale
+	 * @param locale Locale to change to
+	 */
+	changeLocale(locale: MatSelectChange): void {
+		window.location.assign(`/${locale.value}/`);
 	}
 
 	/**

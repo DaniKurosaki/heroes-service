@@ -10,10 +10,12 @@ const HeroController_1 = __importDefault(require("./controllers/HeroController")
 require("dotenv").config();
 const app = (0, express_1.default)();
 const router = express_1.default.Router();
+const cors = require("cors");
 mongoose_1.default
     .connect(process.env.MONGO_CONNECT_URI)
     .then(() => console.log("Connected to MongoDB", process.env.MONGO_CONNECT_URI))
     .catch((err) => console.error("Could not connect to MongoDB:", err));
+app.use(cors());
 app.use(express_1.default.json());
 app.get("/", (req, res) => res.send("Express on Vercel"));
 app.use("/api", router);

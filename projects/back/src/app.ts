@@ -7,12 +7,14 @@ require("dotenv").config();
 
 const app = express();
 const router = express.Router();
+const cors = require("cors");
 
 mongoose
 	.connect(process.env.MONGO_CONNECT_URI!)
 	.then(() => console.log("Connected to MongoDB", process.env.MONGO_CONNECT_URI!))
 	.catch((err) => console.error("Could not connect to MongoDB:", err));
 
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => res.send("Express on Vercel"));

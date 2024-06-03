@@ -5,7 +5,7 @@
 	"projects": {
 		"heroes-service": {
 			"i18n": {
-				"sourceLocale": "en-US",
+				"sourceLocale": "en",
 				"locales": {
 					"es": "src/locale/messages.es.xlf"
 				}
