@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/modules/features/heroes/pages/hero-list/hero-list.component.scss"],
-  "sourcesContent": [":host {\r\n\theight: 100%;\r\n\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tgap: 1rem;\r\n}\r\n\r\n.modifiers {\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\talign-items: center;\r\n\tgap: 1rem;\r\n}\r\n\r\n.paginator {\r\n\tbackground-color: transparent;\r\n}\r\n\r\n::ng-deep .mat-mdc-paginator-outer-container {\r\n\theight: 100%;\r\n}\r\n\r\n.table-section {\r\n\tdisplay: flex;\r\n\tjustify-content: center;\r\n\r\n\t&--loading {\r\n\t\theight: 100%;\r\n\t}\r\n}\r\n\r\nmat-spinner {\r\n\talign-self: center;\r\n}\r\n\r\n.mdc-data-table__header-cell {\r\n\tvertical-align: middle;\r\n\tfont-weight: 600;\r\n}\r\n\r\n.mat-mdc-cell {\r\n\tvertical-align: middle;\r\n}\r\n\r\n.mat-column-edit,\r\n.mat-column-delete {\r\n\ttext-align: end;\r\n\tvertical-align: middle;\r\n}\r\n\r\n.no-data {\r\n\tpadding: 1rem;\r\n\ttext-align: center;\r\n}\r\n"],
-  "mappings": ";AAAA;AACC,UAAA;AAEA,WAAA;AACA,kBAAA;AACA,OAAA;;AAGD,CAAA;AACC,WAAA;AACA,mBAAA;AACA,eAAA;AACA,OAAA;;AAGD,CAAA;AACC,oBAAA;;AAGD,UAAA,CAAA;AACC,UAAA;;AAGD,CAAA;AACC,WAAA;AACA,mBAAA;;AAEA,CAAA;AACC,UAAA;;AAIF;AACC,cAAA;;AAGD,CAAA;AACC,kBAAA;AACA,eAAA;;AAGD,CAAA;AACC,kBAAA;;AAGD,CAAA;AAAA,CAAA;AAEC,cAAA;AACA,kBAAA;;AAGD,CAAA;AACC,WAAA;AACA,cAAA;;",
-  "names": []
-}

@@ -8,7 +8,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { LOCALES, LocalesList } from "../../../shared/enums/common.enum";
 import { MatFormField } from "@angular/material/form-field";
-import { MatSelectModule } from "@angular/material/select";
+import { MatSelectChange, MatSelectModule } from "@angular/material/select";
 import { Locales } from "../../../shared/interfaces/common.interface";
 
 /**
@@ -94,6 +94,14 @@ export class NavbarComponent {
 		const locale = url.split("/")[1] as Locales;
 
 		return LOCALES.includes(locale) ? locale : "en";
+	}
+
+	/**
+	 * Changes the locale
+	 * @param locale Locale to change to
+	 */
+	changeLocale(locale: MatSelectChange): void {
+		this.router.navigate([`${locale.value}/`]);
 	}
 
 	/**

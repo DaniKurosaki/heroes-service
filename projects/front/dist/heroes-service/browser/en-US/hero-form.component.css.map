@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/modules/features/heroes/components/hero-form/hero-form.component.scss"],
-  "sourcesContent": [":host {\r\n\theight: 100%;\r\n\r\n\tdisplay: flex;\r\n\tjustify-content: center;\r\n\talign-items: flex-start;\r\n}\r\n\r\nform {\r\n\tmax-width: 664px;\r\n\r\n\tdisplay: flex;\r\n\tflex-wrap: wrap;\r\n\trow-gap: 3.75rem;\r\n\tcolumn-gap: 2.5rem;\r\n\tjustify-content: space-between;\r\n\r\n\tpadding: 2rem;\r\n}\r\n\r\n.mat-mdc-form-field-input-control.first-name {\r\n\ttext-transform: uppercase;\r\n}\r\n\r\n.buttons {\r\n\tjustify-self: flex-end;\r\n\r\n\twidth: 100%;\r\n\r\n\tdisplay: flex;\r\n\tjustify-content: flex-end;\r\n\tgap: 1rem;\r\n}\r\n"],
-  "mappings": ";AAAA;AACC,UAAA;AAEA,WAAA;AACA,mBAAA;AACA,eAAA;;AAGD;AACC,aAAA;AAEA,WAAA;AACA,aAAA;AACA,WAAA;AACA,cAAA;AACA,mBAAA;AAEA,WAAA;;AAGD,CAAA,gCAAA,CAAA;AACC,kBAAA;;AAGD,CAAA;AACC,gBAAA;AAEA,SAAA;AAEA,WAAA;AACA,mBAAA;AACA,OAAA;;",
-  "names": []
-}

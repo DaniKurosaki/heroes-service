@@ -15,7 +15,7 @@
 				<mat-form-field appearance="outline">
 					<img matPrefix [src]="'assets/icons/flags/' + selectedLocale + '.svg'" [alt]="selectedLocale + '-flag'" />
 
-					<mat-select [(value)]="selectedLocale">
+					<mat-select [(value)]="selectedLocale" (selectionChange)="changeLocale($event)">
 						@for (locale of locales | keyvalue; track $index) {
 						<mat-option mat-option [value]="locale.key" [routerLink]="'/' + locale.key">
 							<img [src]="'assets/icons/flags/' + locale.key + '.svg'" [alt]="locale.value" />

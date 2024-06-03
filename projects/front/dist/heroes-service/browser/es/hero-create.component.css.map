@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/modules/features/heroes/pages/hero-create/hero-create.component.scss"],
-  "sourcesContent": [":host {\r\n\t// height: 100%;\r\n\r\n\tdisplay: flex;\r\n\tjustify-content: center;\r\n\talign-items: flex-start;\r\n}\r\n"],
-  "mappings": ";AAAA;AAGC,WAAA;AACA,mBAAA;AACA,eAAA;;",
-  "names": []
-}
