@@ -11,8 +11,22 @@
 				}
 			</nav>
 
-			<mat-slide-toggle #modeSwitch (change)="toggleTheme()" color="primary" class="theme-toggle" aria-label="Toggle Dark Theme">
-			</mat-slide-toggle>
+			<div class="togglers">
+				<mat-form-field appearance="outline">
+					<img matPrefix [src]="'assets/icons/flags/' + selectedLocale + '.svg'" [alt]="selectedLocale + '-flag'" />
+
+					<mat-select [(value)]="selectedLocale">
+						@for (locale of locales | keyvalue; track $index) {
+						<mat-option mat-option [value]="locale.key" [routerLink]="'/' + locale.key">
+							<img [src]="'assets/icons/flags/' + locale.key + '.svg'" [alt]="locale.value" />
+							{{ locale.value }}
+						</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+
+				<mat-slide-toggle #modeSwitch (change)="toggleTheme()" color="primary" class="theme-toggle" aria-label="Toggle Dark Theme" />
+			</div>
 		</div>
 	</mat-toolbar>
 </header>

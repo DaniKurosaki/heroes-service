@@ -56,7 +56,7 @@ const DialogTextsLocalized: Record<DialogTexts, string> = {
 /**
  * Localized text keys for this component messages
  */
-type Messages = "NO_DATA_MATCHING" | "NO_DATA" | "ERROR" | "FILTER" | "ADD" | "DELETED";
+type Messages = "NO_DATA_MATCHING" | "NO_DATA" | "ERROR" | "FILTER" | "ITEMS_PER_PAGE" | "ADD" | "DELETED";
 
 /**
  * Localized texts for this component messages
@@ -66,6 +66,7 @@ const MessagesLocalized: Record<Messages, string> = {
 	["NO_DATA"]: $localize`:@@HeroListMessages.NoData:No data to display`,
 	["ERROR"]: $localize`:@@HeroListMessages.Error:An error occurred while processing the request`,
 	["FILTER"]: $localize`:@@HeroListMessages.Filter:Filter`,
+	["ITEMS_PER_PAGE"]: $localize`:@@HeroListMessages.ItemsPerPage:Items per page`,
 	["ADD"]: $localize`:@@HeroListMessages.Add:Add new hero`,
 	["DELETED"]: $localize`:@@HeroListMessages.Deleted: deleted successfully`,
 };
@@ -204,6 +205,7 @@ export class HeroListComponent extends CommonComponent implements AfterViewInit 
 	 * After view init lifecycle hook
 	 */
 	ngAfterViewInit() {
+		this.paginator._intl.itemsPerPageLabel = MessagesLocalized["ITEMS_PER_PAGE"];
 		this.dataSource.paginator = this.paginator;
 		this.dataSource.sort = this.sort;
 		this.dataSource.filterPredicate = this.filterPredicate;
@@ -244,7 +246,7 @@ export class HeroListComponent extends CommonComponent implements AfterViewInit 
 	private delete(hero: IHero): void {
 		const dialogRef = this.dialog.open(ModalConfirmComponent, {
 			data: {
-				title: `${DialogTextsLocalized["title"]} ${hero.hero_name}?`,
+				title: `${DialogTextsLocalized["title"]}${hero.hero_name}?`,
 				cancelText: DialogTextsLocalized["cancelText"],
 				confirmText: DialogTextsLocalized["confirmText"],
 			},
