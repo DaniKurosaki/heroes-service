@@ -10,6 +10,9 @@ import { ToastService } from "../../services/toast.service";
  */
 @Directive()
 export abstract class CommonComponent implements ILoad, OnInit, OnDestroy {
+	/**
+	 * Injected dependency for Toast Service
+	 */
 	public readonly toastService: ToastService = inject(ToastService);
 
 	/**

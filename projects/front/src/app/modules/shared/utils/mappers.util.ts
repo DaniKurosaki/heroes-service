@@ -4,8 +4,7 @@
  * @param omittedKeys Keys to omit from the mapping
  * @returns Array of keys
  */
-export function mapKeysToArray<T extends object>(object: T, ...omittedKeys: (keyof T)[]): (keyof Omit<T, (typeof omittedKeys)[number]>)[] {
-	if (omittedKeys.length)
-		return Object.keys(object).filter((key) => !omittedKeys.includes(key as keyof T)) as (keyof Omit<T, (typeof omittedKeys)[number]>)[];
-	return Object.keys(object) as (keyof Omit<T, (typeof omittedKeys)[number]>)[];
+export function mapKeysToArray<T extends object, K extends keyof T>(object: T, ...omittedKeys: K[]): Exclude<keyof T, K>[] {
+	if (omittedKeys.length) return Object.keys(object).filter((key) => !omittedKeys.includes(key as K)) as Exclude<keyof T, K>[];
+	return Object.keys(object) as Exclude<keyof T, K>[];
 }

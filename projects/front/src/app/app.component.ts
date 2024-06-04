@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import { NavbarComponent } from "./modules/core/components/navbar/navbar.component";
+import { HeaderComponent } from "./modules/core/components/header/header.component";
 import { FooterComponent } from "./modules/core/components/footer/footer.component";
 
 /**
@@ -9,7 +9,7 @@ import { FooterComponent } from "./modules/core/components/footer/footer.compone
 @Component({
 	selector: "app-root",
 	standalone: true,
-	imports: [RouterOutlet, NavbarComponent, FooterComponent],
+	imports: [RouterOutlet, HeaderComponent, FooterComponent],
 	templateUrl: "./app.component.html",
 	styleUrl: "./app.component.scss",
 })

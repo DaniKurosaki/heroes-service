@@ -20,13 +20,18 @@ export class HeroService {
 	/**
 	 * URL to the Hero endpoint
 	 */
-	private readonly urlToEndpoint = `${environment.apiUrl}${environment.apiPort ? ":" + environment.apiPort : ""}${environment.apiPath}/heroes`;
+	private getEndpointUrl(): string {
+		const apiUrl = environment.apiUrl;
+		const apiPort = environment.apiPort ? `:${environment.apiPort}` : "";
+		const apiPath = environment.apiPath;
+		return `${apiUrl}${apiPort}${apiPath}/heroes`;
+	}
 
 	/**
 	 * Get all Heroes
 	 */
 	public getAll(): Observable<IHero[]> {
-		return this.http.get<IHero[]>(this.urlToEndpoint);
+		return this.http.get<IHero[]>(this.getEndpointUrl());
 	}
 
 	/**
@@ -34,7 +39,7 @@ export class HeroService {
 	 * @param id Hero's ID
 	 */
 	public getById(id: string): Observable<IHero> {
-		return this.http.get<IHero>(`${this.urlToEndpoint}/${id}`);
+		return this.http.get<IHero>(`${this.getEndpointUrl()}/${id}`);
 	}
 
 	/**
@@ -42,7 +47,7 @@ export class HeroService {
 	 * @param data Hero's data
 	 */
 	public create(data: IHeroCreate): Observable<IHero> {
-		return this.http.post<IHero>(this.urlToEndpoint, data);
+		return this.http.post<IHero>(this.getEndpointUrl(), data);
 	}
 
 	/**
@@ -51,7 +56,7 @@ export class HeroService {
 	 * @param data Hero's data
 	 */
 	public update(id: string, data: Partial<IHeroCreate>): Observable<IHero> {
-		return this.http.put<IHero>(`${this.urlToEndpoint}/${id}`, data);
+		return this.http.put<IHero>(`${this.getEndpointUrl()}/${id}`, data);
 	}
 
 	/**
@@ -59,6 +64,6 @@ export class HeroService {
 	 * @param id Hero's ID
 	 */
 	public deleteById(id: string): Observable<IHero> {
-		return this.http.delete<IHero>(`${this.urlToEndpoint}/${id}`);
+		return this.http.delete<IHero>(`${this.getEndpointUrl()}/${id}`);
 	}
 }

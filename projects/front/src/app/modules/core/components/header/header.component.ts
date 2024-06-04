@@ -12,16 +12,16 @@ import { MatSelectChange, MatSelectModule } from "@angular/material/select";
 import { Locales } from "../../../shared/interfaces/common.interface";
 
 /**
- * This core component is the navbar of the application
+ * This core component is the header of the application
  */
 @Component({
-	selector: "navbar",
+	selector: 'header-app',
 	standalone: true,
 	imports: [CommonModule, RouterModule, MatButtonModule, MatFormField, MatSelectModule, MatSlideToggleModule, MatToolbarModule],
-	templateUrl: "./navbar.component.html",
-	styleUrls: ["./navbar.component.scss"],
+	templateUrl: './header.component.html',
+	styleUrls: ['./header.component.scss'],
 })
-export class NavbarComponent {
+export class HeaderComponent {
 	/**
 	 * Injected dependency for Router
 	 */
