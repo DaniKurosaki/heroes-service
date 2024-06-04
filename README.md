@@ -2,6 +2,21 @@
 
 Application that provides a small REST API to get heroes' information from a MongoDB database and a frontend to interact with it.
 
+## Table of Contents
+
+-   [Demo](#demo)
+-   [Getting Started](#getting-started)
+    -   [Prerequisites](#prerequisites)
+    -   [Installing](#installing)
+    -   [Running](#running)
+    -   [Testing](#testing)
+-   [Built With](#built-with)
+
+## Demo
+
+You can check the application in action in the following link: https://heroes-service.vercel.app/
+And you can also check the API in action in the following link: https://heroes-service-backend.vercel.app/
+
 ## Getting Started
 
 ### Prerequisites
@@ -31,6 +46,12 @@ As for this moment, the frontend is in English and Spanish. To change the langua
 1. Run `npm run start` in the `./projects/back`
 2. Open `http://localhost:8080/` in your browser
 
+### Testing
+
+1. Run `npm run test --code-coverage` in the `./projects/front` directory.
+2. Check the coverage report in the `./projects/front/coverage` directory.
+3. Check the testing results in the browser.
+
 ## Built With
 
 -   [Angular](https://angular.io/)
@@ -40,3 +61,7 @@ As for this moment, the frontend is in English and Spanish. To change the langua
 -   [Express](https://expressjs.com/)
 -   [MongoDB](https://www.mongodb.com/)
 -   [TypeScript](https://www.typescriptlang.org/)
+
+## Possible future improvements
+
+-   Implement the responsive design
