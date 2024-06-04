@@ -1,6 +1,6 @@
 # Heroes Service
 
-Application that provides a small REST API to get heroes' information from a MongoDB database and a frontend to interact with it.
+Application that provides a small REST API to get heroes' information from a MongoDB database and a frontend to interact with it. Both backend and frontend deployed on Vercel, it also has CI/CD thanks to the latter's integration with GitHub.
 
 ## Table of Contents
 
@@ -61,6 +61,10 @@ As for this moment, the frontend is in English and Spanish. To change the langua
 -   [Express](https://expressjs.com/)
 -   [MongoDB](https://www.mongodb.com/)
 -   [TypeScript](https://www.typescriptlang.org/)
+-	[Jasmine](https://jasmine.github.io/)
+-	[Karma](https://karma-runner.github.io/)
+-   [Vercel](https://vercel.com/)
+-   [GitHub](https://github.com/)
 
 ## Possible future improvements
 
